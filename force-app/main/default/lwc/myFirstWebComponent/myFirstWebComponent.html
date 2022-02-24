@@ -1,0 +1,52 @@
+<template>
+	<article class="slds-card slds-media_center">
+		<div class="slds-card__header slds-grid slds-m-horizontal_xx-large">
+			<header class="slds-media slds-media_center slds-has-flexi-truncate">
+				<div class="slds-media__body ">
+					<h2 class="slds-card__header-title">
+						<a href="#" class="slds-card__header-link slds-truncate" title="Alpish">
+							<span>Alpish's tasks</span>
+						</a>
+					</h2>
+				</div>
+			</header>
+		</div>
+		<footer class="slds-card__footer">
+			<!-- >Input and button block <-->
+			<div class="slds-grid slds-row slds-wrap slds-gutters">
+
+				<div class="slds-size_2-of-3 slds-form-element">
+					<div class="slds-form-element__control slds-m-left_x-small">
+						<input value={taskMessage} type="text" onchange={handleChange} id="text-input-id-48" placeholder="Enter your task"  class="slds-input" />
+					</div>
+				</div>
+				<div class="slds-size_1-of-3">
+					<button onclick={createTask} class="slds-button slds-button_brand">Add task</button>
+				</div>
+
+			</div>
+			<!-- >The rest of the grid of tasks <-->
+			<div class="slds-grid slds-wrap slds-gutters slds-m-top_x-small">
+				<template iterator:task={tasks}>
+					<div key={task.value.id} class="slds-col slds-size_1-of-2">
+						<c-child my-name={task.value.id} oneditme={editHandler} ondeleteme={deleteHandler}
+							onsendnametoroot={changeTask}>
+							{task.value.message}
+						</c-child>
+					</div>
+
+				</template>
+
+				<!-- <div class="slds-col slds-size_1-of-2">
+					<c-child> </c-child>
+				</div> -->
+
+
+			</div>
+
+
+		</footer>
+
+	</article>
+
+</template>

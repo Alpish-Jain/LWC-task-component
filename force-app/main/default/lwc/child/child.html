@@ -1,0 +1,28 @@
+<template>
+	<article class="slds-card ">
+		<div
+			class="slds-card__header slds-m-around_xx-small slds-border_right slds-border_top slds-border_left slds-border_bottom slds-grid slds-gutters slds-wrap">
+
+			<header class="slds-media slds-m-around_xx-small slds-media_center slds-has-flexi-truncate">
+
+				<div class="slds-m-horizontal_xx-small slds-media__body">
+					<h2 class="slds-card__header-title">
+						<span>
+							<slot> 
+								<!-- > Here is the slot which receives the data<-->
+							</slot>
+							</span>
+					</h2>
+				</div>
+				<div class="slds-m-horizontal_xx-small slds-no-flex">
+					<button onclick={onEdit} class="slds-button  slds-button_brand">Edit</button>
+					<c-modal onsendoutput={modalTextSender}> </c-modal>
+				</div>
+				<div class="slds-no-flex">
+					<button onclick={onDelete} class="slds-button slds-button_brand">Delete</button>
+				</div>
+			</header>
+
+		</div>
+	</article>
+</template>
